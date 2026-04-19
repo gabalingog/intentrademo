@@ -1,0 +1,591 @@
+skiing: {
+    question: 'What kind of skiing?',
+    options: [
+      { id: 'resort', label: 'Resort' },
+      { id: 'freeride', label: 'Freeride' },
+      { id: 'ski-mountaineering', label: 'Ski Mountaineering' },
+      { id: 'cross-country', label: 'Cross-Country' },
+    ],
+    children: {
+      resort: {
+        question: 'What snow terrain should we plan for?',
+        options: [
+          { id: 'groomed', label: 'Groomed' },
+          { id: 'ungroomed', label: 'Ungroomed' },
+          { id: 'mixed', label: 'Mixed' },
+          { id: 'not-sure', label: 'Not sure' },
+        ],
+        children: {
+          groomed: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+          },
+          ungroomed: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+          },
+          mixed: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+          },
+          'not-sure': {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+          },
+        },
+      },
+      freeride: {
+        question: 'What snow terrain should we plan for?',
+        options: [
+          { id: 'ungroomed', label: 'Ungroomed' },
+          { id: 'backcountry', label: 'Backcountry' },
+          { id: 'mixed', label: 'Mixed' },
+          { id: 'not-sure', label: 'Not sure' },
+        ],
+        children: {
+          ungroomed: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow-powder': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'firm-icy': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'not-sure': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+            },
+          },
+          backcountry: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow-powder': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'firm-icy': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'not-sure': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+            },
+          },
+          mixed: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow-powder': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'firm-icy': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'not-sure': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+            },
+          },
+          'not-sure': {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow-powder', label: 'Soft snow/powder' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow-powder': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'firm-icy': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+              'not-sure': {
+                question: 'Expected snow conditions?',
+                options: [
+                  { id: 'powder', label: 'Powder' },
+                  { id: 'mixed', label: 'Mixed' },
+                  { id: 'technical', label: 'Technical' },
+                ],
+              },
+            },
+          },
+        },
+      },
+      'ski-mountaineering': {
+        question: 'What snow terrain should we plan for?',
+        options: [
+          { id: 'backcountry', label: 'Backcountry' },
+          { id: 'high-alpine', label: 'High Alpine' },
+          { id: 'mixed-alpine', label: 'Mixed Alpine' },
+          { id: 'not-sure', label: 'Not sure' },
+        ],
+        children: {
+          backcountry: {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow', label: 'Soft snow' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'firm-icy': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+          'high-alpine': {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow', label: 'Soft snow' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'firm-icy': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+          'mixed-alpine': {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow', label: 'Soft snow' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'firm-icy': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+          'not-sure': {
+            question: 'What snow surface should we plan for?',
+            options: [
+              { id: 'soft-snow', label: 'Soft snow' },
+              { id: 'firm-icy', label: 'Firm/Icy' },
+              { id: 'mixed-conditions', label: 'Mixed conditions' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              'soft-snow': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'firm-icy': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'mixed-conditions': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'How technical is the terrain?',
+                options: [
+                  { id: 'skinning-skiing', label: 'Skinning and skiing' },
+                  { id: 'bootpacking', label: 'Bootpacking' },
+                  { id: 'technical-alpine', label: 'Technical alpine' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+        },
+      },
+      'cross-country': {
+        question: 'What style of cross-country skiing?',
+        options: [
+          { id: 'classic', label: 'Classic' },
+          { id: 'skate', label: 'Skate' },
+          { id: 'not-sure', label: 'Not sure' },
+        ],
+        children: {
+          classic: {
+            question: 'What snow terrain should we plan for?',
+            options: [
+              { id: 'groomed', label: 'Groomed' },
+              { id: 'rolling', label: 'Rolling' },
+              { id: 'mixed', label: 'Mixed' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              groomed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              rolling: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              mixed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+          skate: {
+            question: 'What snow terrain should we plan for?',
+            options: [
+              { id: 'groomed', label: 'Groomed' },
+              { id: 'rolling', label: 'Rolling' },
+              { id: 'mixed', label: 'Mixed' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              groomed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              rolling: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              mixed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+          'not-sure': {
+            question: 'What snow terrain should we plan for?',
+            options: [
+              { id: 'groomed', label: 'Groomed' },
+              { id: 'rolling', label: 'Rolling' },
+              { id: 'mixed', label: 'Mixed' },
+              { id: 'not-sure', label: 'Not sure' },
+            ],
+            children: {
+              groomed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              rolling: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              mixed: {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+              'not-sure': {
+                question: 'What snow surface should we plan for?',
+                options: [
+                  { id: 'soft-snow', label: 'Soft snow' },
+                  { id: 'firm-icy', label: 'Firm/Icy' },
+                  { id: 'mixed-conditions', label: 'Mixed conditions' },
+                  { id: 'not-sure', label: 'Not sure' },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
