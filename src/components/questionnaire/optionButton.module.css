@@ -1,0 +1,26 @@
+.btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  
+  .btn:hover {
+    border-color: #aaa;
+    background-color: #fafafa;
+  }
+  
+  .arrow {
+    color: #ccc;
+    font-size: 1.1rem;
+  }
