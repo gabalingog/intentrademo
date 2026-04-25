@@ -4,7 +4,6 @@ import image1 from './../../assets/image1.png'
 import image2 from './../../assets/image2.png'
 import image3 from './../../assets/image3.png'
 
-// ─── Hardcoded product catalogue ──────────────────────────────────────────────
 const PRODUCTS = [
   {
     id: 1,
@@ -33,12 +32,78 @@ const PRODUCTS = [
     tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
     price: 769,
     image: image3,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL, 3XL'],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Black', 'Tschiel', 'Mammut Red'],
+  },
+]
+
+const MORE_PRODUCTS = [
+  {
+    id: 101,
+    brand: 'Jacket & Vests',
+    name: 'Mtn. Pro 2.0 HS Hooded Jacket Men',
+    tagline: 'The reliable hardshell with all-mountain performance',
+    price: 490,
+    image: image1,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Mammut Red', 'Marine'],
+  },
+  {
+    id: 102,
+    brand: 'Jacket & Vests',
+    name: 'Crater Light HS Hooded Jacket Men',
+    tagline: 'Precision grip. Maximum protection. Built for exposed terrain.',
+    price: 399,
+    image: image2,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Dark Mammut Red', 'Silver Sage', 'Strata', 'Black', 'Marine'],
+  },
+  {
+    id: 103,
+    brand: 'Jacket & Vests',
+    name: 'Crater Pro HS Hooded Jacket Men',
+    tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
+    price: 769,
+    image: image3,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
     colors: ['Black', 'Tschiel', 'Mammut Red'],
   }
 ]
+
+const RELATED_PRODUCTS = [
+  {
+    id: 201,
+    brand: 'Jacket & Vests',
+    name: 'Mtn. Pro 2.0 HS Hooded Jacket Men',
+    tagline: 'The reliable hardshell with all-mountain performance',
+    price: 490,
+    image: image1,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Mammut Red', 'Marine'],
+  },
+  {
+    id: 202,
+    brand: 'Jacket & Vests',
+    name: 'Crater Light HS Hooded Jacket Men',
+    tagline: 'Precision grip. Maximum protection. Built for exposed terrain.',
+    price: 399,
+    image: image2,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Dark Mammut Red', 'Silver Sage', 'Strata', 'Black', 'Marine'],
+  },
+  {
+    id: 203,
+    brand: 'Jacket & Vests',
+    name: 'Crater Pro HS Hooded Jacket Men',
+    tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
+    price: 769,
+    image: image3,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: ['Black', 'Tschiel', 'Mammut Red'],
+  }
+]
+
  
-// ─── Cart icon SVG ────────────────────────────────────────────────────────────
 function CartIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +121,7 @@ function SearchIcon() {
   )
 }
  
-// ─── Product Card ─────────────────────────────────────────────────────────────
+// ─── Product Card (top section, 3-col) ───────────────────────────────────────
 function ProductCard({ product }) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[Math.floor(product.sizes.length / 2)])
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
@@ -79,31 +144,18 @@ function ProductCard({ product }) {
         <p className={styles.tagline}>{product.tagline}</p>
  
         <div className={styles.controls}>
-          {/* Size select */}
           <div className={styles.selectWrap}>
-            <select
-              value={selectedSize}
-              onChange={e => setSelectedSize(e.target.value)}
-              className={styles.select}
-            >
+            <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className={styles.select}>
               {product.sizes.map(s => <option key={s}>{s}</option>)}
             </select>
             <span className={styles.chevron}>▾</span>
           </div>
- 
-          {/* Color select */}
           <div className={styles.selectWrap}>
-            <select
-              value={selectedColor}
-              onChange={e => setSelectedColor(e.target.value)}
-              className={styles.select}
-            >
+            <select value={selectedColor} onChange={e => setSelectedColor(e.target.value)} className={styles.select}>
               {product.colors.map(c => <option key={c}>{c}</option>)}
             </select>
             <span className={styles.chevron}>▾</span>
           </div>
- 
-          {/* Quantity stepper */}
           <div className={styles.stepper}>
             <button className={styles.stepBtn} onClick={() => setQty(q => Math.max(1, q - 1))}>−</button>
             <span className={styles.qty}>{qty}</span>
@@ -128,7 +180,7 @@ function ProductCard({ product }) {
   )
 }
  
-// ─── Small Product Card (for "More Products" row) ────────────────────────────
+// ─── Small Product Card (bottom section, 5-col) ───────────────────────────────
 function SmallProductCard({ product }) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[Math.floor(product.sizes.length / 2)])
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
@@ -201,7 +253,6 @@ export default function ResultsPage({ onBack }) {
  
   return (
     <div className={styles.page}>
-      {/* Nav */}
       <header className={styles.header}>
         <span className={styles.logo}>Intentra</span>
         <div className={styles.searchBar}>
@@ -219,7 +270,6 @@ export default function ResultsPage({ onBack }) {
         </button>
       </header>
  
-      {/* Hero text */}
       <main className={styles.main}>
         <div className={styles.hero}>
           <h1 className={styles.heroTitle}>Top Matches for You</h1>
@@ -231,7 +281,6 @@ export default function ResultsPage({ onBack }) {
           )}
         </div>
  
-        {/* Grid */}
         <div className={styles.grid}>
           {filtered.map(product => (
             <ProductCard key={product.id} product={product} />
@@ -242,7 +291,6 @@ export default function ResultsPage({ onBack }) {
           <p className={styles.empty}>No products match your search.</p>
         )}
  
-        {/* More Products section */}
         <div className={styles.moreSection}>
           <h2 className={styles.moreTitle}>More Products That Fit Your Intent</h2>
           <p className={styles.moreSub}>Explore additional items carefully selected for you</p>
@@ -252,7 +300,22 @@ export default function ResultsPage({ onBack }) {
             ))}
           </div>
         </div>
+ 
+        <div className={styles.relatedSection}>
+          <h2 className={styles.moreTitle}>Related Products</h2>
+          <p className={styles.moreSub}>Items that complement your current selections</p>
+          <div className={styles.relatedGrid}>
+            {RELATED_PRODUCTS.map(product => (
+              <SmallProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
       </main>
+
+      <footer className={styles.pageFooter}>
+        <p className={styles.footerMain}>© 2026 Intentra. Intelligent shopping, curated for you.</p>
+        <p className={styles.footerSub}>Premium products · Thoughtful curation · Seamless experience</p>
+      </footer>
     </div>
   )
 }

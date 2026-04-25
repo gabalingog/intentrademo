@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Questionnaire from './../components/questionnaire/questionnaire'
 import ResultsPage from './../components/results/resultsPage'
+import styles from './questionnairePage.module.css'
 
 export default function QuestionnairePage() {
   const [answers, setAnswers] = useState(null)
@@ -11,12 +12,18 @@ export default function QuestionnairePage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="w-full max-w-md py-12">
-        <Questionnaire
-          onComplete={(a) => setAnswers(a)}
-          onViewResults={() => setShowResults(true)}
-        />
+    <div className={styles.page}>
+      <div className={styles.inner}>
+        <div className={styles.header}>
+          <h1 className={styles.logo}>intentra</h1>
+          <p className={styles.tagline}>Decision support</p>
+        </div>
+        <div className={styles.card}>
+          <Questionnaire
+            onComplete={(a) => setAnswers(a)}
+            onViewResults={() => setShowResults(true)}
+          />
+        </div>
       </div>
     </div>
   )
