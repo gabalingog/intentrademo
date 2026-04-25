@@ -511,7 +511,7 @@ const OTHER_OPTIONS = [
   'Footwear', 'Core Gear', 'Safety', 'Add-Ons',
 ]
 
-export default function Questionnaire({ onComplete }) {
+export default function Questionnaire({ onComplete, onViewResults }) {
   const [stepKey, setStepKey] = useState('start')
   const [history, setHistory] = useState([])
   const [answers, setAnswers] = useState({})
@@ -562,20 +562,29 @@ export default function Questionnaire({ onComplete }) {
         <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-2xl">✓</div>
         <h2 className="text-2xl font-bold">Perfect</h2>
         <p className="text-gray-500 text-center">We've captured your preferences. Let's find the perfect gear for your adventure.</p>
-        <button
-          onClick={() => {
-            setStepKey('start')
-            setHistory([])
-            setAnswers({})
-            setGender('Women')
-            setClothes([])
-            setOther([])
-            setDone(false)
-          }}
-          className="mt-6 text-gray-500 hover:text-gray-800 font-medium transition-colors"
-        >
-          Start over
-        </button>
+
+        <div className="flex items-center gap-4 mt-6">
+          <button
+            onClick={() => onViewResults && onViewResults()}
+            className="bg-black text-white font-semibold px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors"
+          >
+            View Results →
+          </button>
+          <button
+            onClick={() => {
+              setStepKey('start')
+              setHistory([])
+              setAnswers({})
+              setGender('Women')
+              setClothes([])
+              setOther([])
+              setDone(false)
+            }}
+            className="text-gray-500 hover:text-gray-800 font-medium transition-colors"
+          >
+            Start over
+          </button>
+        </div>
       </div>
     )
   }
