@@ -1,107 +1,6 @@
 import { useState } from 'react'
 import styles from './resultsPage.module.css'
-import image1 from './../../assets/image1.png'
-import image2 from './../../assets/image2.png'
-import image3 from './../../assets/image3.png'
-
-const PRODUCTS = [
-  {
-    id: 1,
-    brand: 'Jacket & Vests',
-    name: 'Mtn. Pro 2.0 HS Hooded Jacket Men',
-    tagline: 'The reliable hardshell with all-mountain performance',
-    price: 490,
-    image: image1,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Mammut Red', 'Marine'],
-  },
-  {
-    id: 2,
-    brand: 'Jacket & Vests',
-    name: 'Crater Light HS Hooded Jacket Men',
-    tagline: 'Precision grip. Maximum protection. Built for exposed terrain.',
-    price: 399,
-    image: image2,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Silver Sage', 'Strata', 'Dark Mammut Red', 'Black', 'Marine'],
-  },
-  {
-    id: 3,
-    brand: 'Jacket & Vests',
-    name: 'Crater Pro HS Hooded Jacket Men',
-    tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
-    price: 769,
-    image: image3,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Black', 'Tschiel', 'Mammut Red'],
-  },
-]
-
-const MORE_PRODUCTS = [
-  {
-    id: 101,
-    brand: 'Jacket & Vests',
-    name: 'Mtn. Pro 2.0 HS Hooded Jacket Men',
-    tagline: 'The reliable hardshell with all-mountain performance',
-    price: 490,
-    image: image1,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Mammut Red', 'Marine'],
-  },
-  {
-    id: 102,
-    brand: 'Jacket & Vests',
-    name: 'Crater Light HS Hooded Jacket Men',
-    tagline: 'Precision grip. Maximum protection. Built for exposed terrain.',
-    price: 399,
-    image: image2,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Dark Mammut Red', 'Silver Sage', 'Strata', 'Black', 'Marine'],
-  },
-  {
-    id: 103,
-    brand: 'Jacket & Vests',
-    name: 'Crater Pro HS Hooded Jacket Men',
-    tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
-    price: 769,
-    image: image3,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Black', 'Tschiel', 'Mammut Red'],
-  },
-]
-
-const RELATED_PRODUCTS = [
-  {
-    id: 201,
-    brand: 'Jacket & Vests',
-    name: 'Mtn. Pro 2.0 HS Hooded Jacket Men',
-    tagline: 'The reliable hardshell with all-mountain performance',
-    price: 490,
-    image: image1,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Mammut Red', 'Marine'],
-  },
-  {
-    id: 202,
-    brand: 'Jacket & Vests',
-    name: 'Crater Light HS Hooded Jacket Men',
-    tagline: 'Precision grip. Maximum protection. Built for exposed terrain.',
-    price: 399,
-    image: image2,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Dark Mammut Red', 'Silver Sage', 'Strata', 'Black', 'Marine'],
-  },
-  {
-    id: 203,
-    brand: 'Jacket & Vests',
-    name: 'Crater Pro HS Hooded Jacket Men',
-    tagline: 'Durable, all-mountain GORE-TEX PRO jacket',
-    price: 769,
-    image: image3,
-    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
-    colors: ['Black', 'Tschiel', 'Mammut Red'],
-  },
-]
+import { getRecommendations } from '../../lib/recommend'
 
 function CartIcon() {
   return (
@@ -428,7 +327,12 @@ function SmallProductCard({ product, onAddToCart }) {
 }
 
 // ─── Results Page ─────────────────────────────────────────────────────────────
-export default function ResultsPage({ onBack }) {
+export default function ResultsPage({ onBack, answers }) {
+  const recommendations = getRecommendations(answers || {})
+  const PRODUCTS = recommendations.slice(0, 3)
+  const MORE_PRODUCTS = recommendations.slice(3, 6)
+  const RELATED_PRODUCTS = recommendations.slice(6, 9)
+
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
   const [view, setView] = useState('results') // 'results' | 'checkout' | 'success'

@@ -1,0 +1,286 @@
+[
+    {
+      "product_id": "1010-32440",
+      "product_name": "Crag HS Hooded Jacket Men",
+      "variant_sku": "1010-32440-1329",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 249,
+      "is_sale": false,
+      "jacket_code": "HS",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Spring", "Fall", "Winter"],
+      "weight_g": 355,
+      "water_column_mm": 20000,
+      "breathability_rating": "20000 g/m²/24h",
+      "material_denier": "40Dx40D",
+      "rating": 5.0,
+      "review_count": 2,
+      "certifications": ["Mammut DRY Tour", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Holunder-acacia", "sku": "1010-32440-1329",  "url": "https://www.mammut.com/us/en/products/1010-32440-1329/crag-hs-hooded-jacket-men" },
+        { "name": "Tschiel-marine",  "sku": "1010-32440-50670", "url": "https://www.mammut.com/us/en/products/1010-32440-50670/crag-hs-hooded-jacket-men" },
+        { "name": "Black",           "sku": "1010-32440-0001",  "url": "https://www.mammut.com/us/en/products/1010-32440-0001/crag-hs-hooded-jacket-men" },
+        { "name": "Silver sage",     "sku": "1010-32440-1288",  "url": "https://www.mammut.com/us/en/products/1010-32440-1288/crag-hs-hooded-jacket-men" },
+        { "name": "Marine",          "sku": "1010-32440-5118",  "url": "https://www.mammut.com/us/en/products/1010-32440-5118/crag-hs-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 6, "waterproof": 4, "breathability": 4, "durability": 4,
+        "packability": 4, "lightweight": 4, "warmth": null, "warmth_to_weight": null,
+        "stretch": null, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Hiking", "score": 6 }, { "name": "Mountaineering", "score": 6 },
+        { "name": "Trekking", "score": 5 }, { "name": "Climbing", "score": 4 },
+        { "name": "Everyday", "score": 4 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1010-32440-1329/crag-hs-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1010-32440-1329_main_288035.jpg",
+      "short_description": "Dependable, lightweight mountaineering hardshell",
+      "description": "Designed for unpredictable conditions on alpine adventures. This waterproof hardshell is made from 2.5-layer Mammut DRY Tour laminate with DWR Coating to keep you dry as you navigate your route."
+    },
+    {
+      "product_id": "1013-02962",
+      "product_name": "Broad Peak IN Hooded Jacket Men",
+      "variant_sku": "1013-02962-0001",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 369,
+      "is_sale": false,
+      "jacket_code": "IN",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Fall", "Winter", "Spring"],
+      "weight_g": 383,
+      "water_column_mm": null,
+      "breathability_rating": null,
+      "material_denier": "20Dx20D",
+      "rating": 4.45,
+      "review_count": 49,
+      "certifications": ["DRY DOWN", "Pertex Quantum", "Responsible Down", "bluesign PRODUCT", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Black",        "sku": "1013-02962-0001", "url": "https://www.mammut.com/us/en/products/1013-02962-0001/broad-peak-in-hooded-jacket-men" },
+        { "name": "Mammut red",   "sku": "1013-02962-3778", "url": "https://www.mammut.com/us/en/products/1013-02962-3778/broad-peak-in-hooded-jacket-men" },
+        { "name": "Marine-black", "sku": "1013-02962-5975", "url": "https://www.mammut.com/us/en/products/1013-02962-5975/broad-peak-in-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 3, "waterproof": null, "breathability": null, "durability": 4,
+        "packability": 5, "lightweight": 4, "warmth": 4, "warmth_to_weight": 4,
+        "stretch": null, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Mountaineering", "score": 5 }, { "name": "Ski Touring", "score": 5 },
+        { "name": "Freeriding", "score": 4 }, { "name": "Hiking", "score": 4 },
+        { "name": "Skiing", "score": 4 }, { "name": "Trekking", "score": 4 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1013-02962-0001/broad-peak-in-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1013-02962-0001_main_280346.jpg",
+      "short_description": "Functional performance year-round down jacket",
+      "description": "Designed as a functional down jacket for mountain adventures. Provides reliable warmth with 800 cuin fill power from responsibly sourced hydrophobic down that insulates even in wet conditions."
+    },
+    {
+      "product_id": "1013-03850",
+      "product_name": "Sender IN Hybrid Jacket Men",
+      "variant_sku": "1013-03850-5118",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 229,
+      "is_sale": false,
+      "jacket_code": "IN",
+      "focus_type": "Hybrid Jacket",
+      "fit": "Regular Fit",
+      "season": ["Fall", "Winter", "Spring"],
+      "weight_g": 520,
+      "water_column_mm": null,
+      "breathability_rating": null,
+      "material_denier": "30Dx20D",
+      "rating": 4.88,
+      "review_count": 40,
+      "certifications": ["Mammut LOOPINSULATION", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Marine",      "sku": "1013-03850-5118", "url": "https://www.mammut.com/us/en/products/1013-03850-5118/sender-in-hybrid-jacket-men" },
+        { "name": "Black",       "sku": "1013-03850-0001", "url": "https://www.mammut.com/us/en/products/1013-03850-0001/sender-in-hybrid-jacket-men" },
+        { "name": "Silver sage", "sku": "1013-03850-1288", "url": "https://www.mammut.com/us/en/products/1013-03850-1288/sender-in-hybrid-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 4, "waterproof": null, "breathability": 2, "durability": 4,
+        "packability": 2, "lightweight": null, "warmth": 5, "warmth_to_weight": null,
+        "stretch": null, "quick_drying": 3
+      },
+      "activities": [
+        { "name": "Everyday", "score": 6 }, { "name": "Hiking", "score": 4 },
+        { "name": "Freeriding", "score": 3 }, { "name": "Skiing", "score": 3 },
+        { "name": "Climbing", "score": 2 }, { "name": "Ski Touring", "score": 2 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1013-03850-5118/sender-in-hybrid-jacket-men",
+      "image_url": "https://static.mammut.com/512/1013-03850-5118_main_275363.jpg",
+      "short_description": "Versatile, insulated hybrid jacket",
+      "description": "For reliable warmth and movement. This versatile layer works under a hardshell or as a standalone in transition seasons for hikes or multi-day ski tours. Insulated with Mammut LOOPINSULATION, a synthetic fill made from recycled rope offcuts."
+    },
+    {
+      "product_id": "1010-32520",
+      "product_name": "Taiss Light HS Hooded Jacket Men",
+      "variant_sku": "1010-32520-50589",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 319,
+      "is_sale": false,
+      "jacket_code": "HS",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Spring", "Summer", "Fall"],
+      "weight_g": 351,
+      "water_column_mm": 20000,
+      "breathability_rating": "30000 g/m²/24h",
+      "material_denier": "15Dx15D",
+      "rating": null,
+      "review_count": 0,
+      "certifications": ["Mammut DRY Active", "bluesign PRODUCT", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Glacier blue",   "sku": "1010-32520-50589", "url": "https://www.mammut.com/us/en/products/1010-32520-50589/taiss-light-hs-hooded-jacket-men" },
+        { "name": "Black",          "sku": "1010-32520-0001",  "url": "https://www.mammut.com/us/en/products/1010-32520-0001/taiss-light-hs-hooded-jacket-men" },
+        { "name": "Mammut red",     "sku": "1010-32520-3778",  "url": "https://www.mammut.com/us/en/products/1010-32520-3778/taiss-light-hs-hooded-jacket-men" },
+        { "name": "Acacia-holunder","sku": "1010-32520-1327",  "url": "https://www.mammut.com/us/en/products/1010-32520-1327/taiss-light-hs-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 6, "waterproof": 5, "breathability": 5, "durability": 3,
+        "packability": 5, "lightweight": 4, "warmth": null, "warmth_to_weight": null,
+        "stretch": null, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Mountaineering", "score": 6 }, { "name": "Climbing", "score": 5 },
+        { "name": "Hiking", "score": 4 }, { "name": "Trekking", "score": 3 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1010-32520-50589/taiss-light-hs-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1010-32520-50589_main_289542.jpg",
+      "short_description": "Ultra-light, packable mountaineering hardshell",
+      "description": "An ultra-light jacket for tough alpine conditions. Made with 3-layer Mammut DRY Active laminate and finished with DWR Coating. Packable into an internal stow pocket for easy carry."
+    },
+    {
+      "product_id": "1010-31450",
+      "product_name": "Crater Light HS Hooded Jacket Men",
+      "variant_sku": "1010-31450-5118",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 399,
+      "is_sale": false,
+      "jacket_code": "HS",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Spring", "Fall", "Winter"],
+      "weight_g": 404,
+      "water_column_mm": 28000,
+      "breathability_rating": "RET<13 m² Pa/W",
+      "material_denier": "75Dx75D",
+      "rating": 4.64,
+      "review_count": 22,
+      "certifications": ["GORE-TEX EPE Membrane", "Solution Dye", "bluesign PRODUCT", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Marine",          "sku": "1010-31450-5118",  "url": "https://www.mammut.com/us/en/products/1010-31450-5118/crater-light-hs-hooded-jacket-men" },
+        { "name": "Silver sage",     "sku": "1010-31450-1288",  "url": "https://www.mammut.com/us/en/products/1010-31450-1288/crater-light-hs-hooded-jacket-men" },
+        { "name": "Dark mammut red", "sku": "1010-31450-3818",  "url": "https://www.mammut.com/us/en/products/1010-31450-3818/crater-light-hs-hooded-jacket-men" },
+        { "name": "Strata",          "sku": "1010-31450-00789", "url": "https://www.mammut.com/us/en/products/1010-31450-00789/crater-light-hs-hooded-jacket-men" },
+        { "name": "Black",           "sku": "1010-31450-0001",  "url": "https://www.mammut.com/us/en/products/1010-31450-0001/crater-light-hs-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 6, "waterproof": 6, "breathability": 4, "durability": 5,
+        "packability": 4, "lightweight": null, "warmth": 1, "warmth_to_weight": null,
+        "stretch": null, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Hiking", "score": 6 }, { "name": "Trekking", "score": 5 },
+        { "name": "Everyday", "score": 5 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1010-31450-5118/crater-light-hs-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1010-31450-5118_main_266512.jpg",
+      "short_description": "Functional 3-layer GORE-TEX hiking jacket",
+      "description": "The go-to jacket for technical trails and multi-day hikes. This 3-layer GORE-TEX ePE membrane jacket features high-level waterproofing, wind protection, and breathability, with a reduced carbon footprint."
+    },
+    {
+      "product_id": "1011-02640",
+      "product_name": "Ultimate Comfort SO Hooded Jacket Men",
+      "variant_sku": "1011-02640-00789",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 259,
+      "is_sale": false,
+      "jacket_code": "SO",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Spring", "Fall", "Winter"],
+      "weight_g": 561,
+      "water_column_mm": null,
+      "breathability_rating": "10000 g/m²/24h",
+      "material_denier": null,
+      "rating": 4.0,
+      "review_count": 4,
+      "certifications": ["Mammut FLEXGUARD Protect", "bluesign PRODUCT", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Strata", "sku": "1011-02640-00789", "url": "https://www.mammut.com/us/en/products/1011-02640-00789/ultimate-comfort-so-hooded-jacket-men" },
+        { "name": "Black",  "sku": "1011-02640-0001",  "url": "https://www.mammut.com/us/en/products/1011-02640-0001/ultimate-comfort-so-hooded-jacket-men" },
+        { "name": "Nebla",  "sku": "1011-02640-50658", "url": "https://www.mammut.com/us/en/products/1011-02640-50658/ultimate-comfort-so-hooded-jacket-men" },
+        { "name": "Tschiel","sku": "1011-02640-50665", "url": "https://www.mammut.com/us/en/products/1011-02640-50665/ultimate-comfort-so-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 6, "waterproof": null, "breathability": 3, "durability": 5,
+        "packability": 3, "lightweight": null, "warmth": 3, "warmth_to_weight": null,
+        "stretch": 3, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Hiking", "score": 6 }, { "name": "Everyday", "score": 6 },
+        { "name": "Trekking", "score": 5 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1011-02640-00789/ultimate-comfort-so-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1011-02640-00789_main_274522.jpg",
+      "short_description": "Year-round softshell hiking jacket",
+      "description": "Ready for hiking, travel or everyday wear. Features a protective 3-layer softshell laminate with added 4-way stretch and a smooth backer for maximum comfort."
+    },
+    {
+      "product_id": "1011-02670",
+      "product_name": "Ultimate VIII SO Hooded Jacket Men",
+      "variant_sku": "1011-02670-00791",
+      "category": "Clothing",
+      "subcategory": "Jackets & Vests",
+      "gender": "Men",
+      "price_usd": 299,
+      "is_sale": false,
+      "jacket_code": "SO",
+      "focus_type": "Hooded Jacket",
+      "fit": "Regular Fit",
+      "season": ["Spring", "Fall", "Winter"],
+      "weight_g": 559,
+      "water_column_mm": null,
+      "breathability_rating": "RET<30 m² Pa/W",
+      "material_denier": null,
+      "rating": 4.76,
+      "review_count": 38,
+      "certifications": ["GORE WINDSTOPPER", "bluesign PRODUCT", "PFC-Free DWR", "Fair Wear", "Recycled"],
+      "colors": [
+        { "name": "Black",        "sku": "1011-02670-0001",  "url": "https://www.mammut.com/us/en/products/1011-02670-0001/ultimate-viii-so-hooded-jacket-men" },
+        { "name": "Strata-black", "sku": "1011-02670-00791", "url": "https://www.mammut.com/us/en/products/1011-02670-00791/ultimate-viii-so-hooded-jacket-men" },
+        { "name": "Marine",       "sku": "1011-02670-5118",  "url": "https://www.mammut.com/us/en/products/1011-02670-5118/ultimate-viii-so-hooded-jacket-men" },
+        { "name": "Acacia-black", "sku": "1011-02670-1326",  "url": "https://www.mammut.com/us/en/products/1011-02670-1326/ultimate-viii-so-hooded-jacket-men" }
+      ],
+      "performance": {
+        "windproof": 6, "waterproof": null, "breathability": 3, "durability": 4,
+        "packability": 3, "lightweight": null, "warmth": 3, "warmth_to_weight": null,
+        "stretch": 3, "quick_drying": null
+      },
+      "activities": [
+        { "name": "Hiking", "score": 6 }, { "name": "Trekking", "score": 6 },
+        { "name": "Everyday", "score": 5 }, { "name": "Mountaineering", "score": 3 },
+        { "name": "Ski Touring", "score": 3 }
+      ],
+      "product_url": "https://www.mammut.com/us/en/products/1011-02670-00791/ultimate-viii-so-hooded-jacket-men",
+      "image_url": "https://static.mammut.com/512/1011-02670-00791_main_288041.jpg",
+      "short_description": "Versatile, year-round softshell jacket",
+      "description": "This softshell uses durable, weather-resistant, 3-layer WINDSTOPPER® fabric by GORE-TEX LABS. Made for hiking, trekking and mountaineering with pit zippers for extra ventilation."
+    }
+  ]

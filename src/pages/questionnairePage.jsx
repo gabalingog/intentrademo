@@ -7,8 +7,9 @@ export default function QuestionnairePage() {
   const [answers, setAnswers] = useState(null)
   const [showResults, setShowResults] = useState(false)
 
+  // questionnairePage.jsx
   if (showResults) {
-    return <ResultsPage onBack={() => setShowResults(false)} />
+    return <ResultsPage onBack={() => setShowResults(false)} answers={answers} />
   }
 
   return (
