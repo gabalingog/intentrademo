@@ -117,16 +117,17 @@ function buildTagProfile(answers) {
   const tagScores = {}
   const needKeywords = new Set()
 
+  for (const rule of TAG_RULES) {
+    const matches = Object.entries(rule.match).every(
+      ([k, v]) => answers[k] === v
+    )
+    if (matches) {
+      rule.tags.forEach(tag => { tagScores[tag] = (tagScores[tag] || 0) + 1 })
+    }
+  }
+
   for (const [stepKey, answerLabel] of Object.entries(answers)) {
     if (stepKey === 'focus') continue
-    for (const rule of TAG_RULES) {
-      const matches = Object.entries(rule.match).every(
-        ([k, v]) => answers[k] === v
-      )
-      if (matches) {
-        rule.tags.forEach(tag => { tagScores[tag] = (tagScores[tag] || 0) + 1 })
-      }
-    }
     for (const boost of NEED_BOOSTS) {
       if (boost.values.includes(answerLabel)) {
         boost.keywords.forEach(k => needKeywords.add(k))
@@ -252,7 +253,7 @@ const SIZE_SETS = {
 
 const FALLBACK_IMAGE = '/images/product-placeholder.png'
 
-function normalizeProduct(p) {
+export function normalizeProduct(p) {
   return {
     id: p.product_url,
     brand: p.subcategory === 'Accessories' && p.accessory_type ? p.accessory_type : p.subcategory,
