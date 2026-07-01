@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import styles from './resultsPage.module.css'
-import { getRecommendations } from '../../lib/recommend'
+import products from '../../data/products.json'
+import { getRecommendations, normalizeProduct } from '../../lib/recommend'
+
+// Precomputed once — the full catalog, normalized the same way recommendations
+// are, so the search bar can search everything, not just the curated picks.
+const ALL_PRODUCTS = products.map(normalizeProduct)
 
 function CartIcon() {
   return (
@@ -258,7 +263,7 @@ function ProductCard({ product, onAddToCart }) {
         </div>
         <div className={styles.footer}>
           <span className={styles.price}>
-            ${product.price % 1 === 0 ? product.price.toFixed(0) : product.price.toFixed(2)}
+            {product.price != null ? `$${product.price % 1 === 0 ? product.price.toFixed(0) : product.price.toFixed(2)}` : 'N/A'}
           </span>
           <button className={`${styles.addBtn} ${added ? styles.addedBtn : ''}`} onClick={handleAdd}>
             <CartIcon />
@@ -314,7 +319,7 @@ function SmallProductCard({ product, onAddToCart }) {
         </div>
         <div className={styles.footer}>
           <span className={styles.price}>
-            ${product.price % 1 === 0 ? product.price.toFixed(0) : product.price.toFixed(2)}
+            {product.price != null ? `$${product.price % 1 === 0 ? product.price.toFixed(0) : product.price.toFixed(2)}` : 'N/A'}
           </span>
           <button className={`${styles.addBtn} ${added ? styles.addedBtn : ''}`} onClick={handleAdd}>
             <CartIcon />
@@ -379,11 +384,19 @@ export default function ResultsPage({ onBack, answers }) {
     setView('results')
   }
 
-  const filtered = PRODUCTS.filter(p =>
-    search === '' ||
-    p.name.toLowerCase().includes(search.toLowerCase()) ||
-    p.brand.toLowerCase().includes(search.toLowerCase())
-  )
+  // Search now runs against the FULL catalog (ALL_PRODUCTS), not just the
+  // curated PRODUCTS list, so users can find anything in the store.
+  const isSearching = search.trim() !== ''
+  const searchResults = isSearching
+    ? ALL_PRODUCTS.filter(p => {
+        const q = search.toLowerCase()
+        return (
+          p.name.toLowerCase().includes(q) ||
+          p.brand.toLowerCase().includes(q) ||
+          p.tagline.toLowerCase().includes(q)
+        )
+      })
+    : []
 
   if (view === 'checkout') {
     return (
@@ -402,7 +415,7 @@ export default function ResultsPage({ onBack, answers }) {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <span className={styles.logo}>Intentra</span>
+        <span className={styles.logo} onClick={onBack} style={{ cursor: onBack ? 'pointer' : 'default' }}>Intentra</span>
         <div className={styles.searchBar}>
           <SearchIcon />
           <input
@@ -420,44 +433,62 @@ export default function ResultsPage({ onBack, answers }) {
 
       <main className={styles.main}>
         <div className={styles.hero}>
-          <h1 className={styles.heroTitle}>Top Matches for You</h1>
-          <p className={styles.heroSub}>Curated selections based on your preferences and intent</p>
-          {onBack && (
+          <h1 className={styles.heroTitle}>
+            {isSearching ? 'Search Results' : 'Top Matches for You'}
+          </h1>
+          <p className={styles.heroSub}>
+            {isSearching
+              ? `${searchResults.length} product${searchResults.length !== 1 ? 's' : ''} found`
+              : 'Curated selections based on your preferences and intent'}
+          </p>
+          {onBack && !isSearching && (
             <button className={styles.backBtn} onClick={onBack}>
               ← Adjust preferences
             </button>
           )}
         </div>
 
-        <div className={styles.grid}>
-          {filtered.map(product => (
-            <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
-          ))}
-        </div>
+        {isSearching ? (
+          <>
+            <div className={styles.grid}>
+              {searchResults.map(product => (
+                <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+              ))}
+            </div>
 
-        {filtered.length === 0 && (
-          <p className={styles.empty}>No products match your search.</p>
+            {searchResults.length === 0 && (
+              <p className={styles.empty}>No products match your search.</p>
+            )}
+          </>
+        ) : (
+          <>
+            <div className={styles.grid}>
+              {PRODUCTS.map(product => (
+                <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+              ))}
+            </div>
+
+            <div className={styles.moreSection}>
+              <h2 className={styles.moreTitle}>More Products That Fit Your Intent</h2>
+              <p className={styles.moreSub}>Explore additional items carefully selected for you</p>
+              <div className={styles.moreGrid}>
+                {MORE_PRODUCTS.map(product => (
+                  <SmallProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.relatedSection}>
+              <h2 className={styles.moreTitle}>Related Products</h2>
+              <p className={styles.moreSub}>Items that complement your current selections</p>
+              <div className={styles.relatedGrid}>
+                {RELATED_PRODUCTS.map(product => (
+                  <SmallProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                ))}
+              </div>
+            </div>
+          </>
         )}
-
-        <div className={styles.moreSection}>
-          <h2 className={styles.moreTitle}>More Products That Fit Your Intent</h2>
-          <p className={styles.moreSub}>Explore additional items carefully selected for you</p>
-          <div className={styles.moreGrid}>
-            {MORE_PRODUCTS.map(product => (
-              <SmallProductCard key={product.id} product={product} onAddToCart={addToCart} />
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.relatedSection}>
-          <h2 className={styles.moreTitle}>Related Products</h2>
-          <p className={styles.moreSub}>Items that complement your current selections</p>
-          <div className={styles.relatedGrid}>
-            {RELATED_PRODUCTS.map(product => (
-              <SmallProductCard key={product.id} product={product} onAddToCart={addToCart} />
-            ))}
-          </div>
-        </div>
       </main>
 
       <footer className={styles.pageFooter}>

@@ -45,9 +45,13 @@ const TAG_RULES = [
   { match: { running_type: 'Trail Running' }, tags: ['Trailrunning', 'Hiking'] },
   { match: { running_type: 'Triathlon' }, tags: ['Trailrunning', 'Everyday'] },
 
-  // Biking — catalog is apparel-only with no bike-specific tags. Use 'Everyday'
-  // as a broad-coverage fallback so bikers at least see general performance wear.
-  { match: { start: 'Biking' }, tags: ['Everyday'] },
+  // Biking — differentiated by riding style so MTB/gravel/road surface different results
+  { match: { biking_type: 'Road Cycling' }, tags: ['Everyday', 'Trailrunning'] },
+  { match: { biking_type: 'Gravel Riding' }, tags: ['Hiking', 'Everyday'] },
+  { match: { biking_type: 'Mountain Biking' }, tags: ['Hiking', 'Trekking'] },
+  { match: { biking_type: 'Trekking/Travel' }, tags: ['Hiking', 'Everyday'] },
+  { match: { biking_type: 'City/Commuting' }, tags: ['Everyday'] },
+  { match: { biking_type: "Children's Bike" }, tags: ['Everyday'] },
 
   // Other
   { match: { other_type: 'Yoga & Pilates' }, tags: ['Everyday'] },
@@ -69,6 +73,7 @@ const TAG_RULES = [
 const NEED_BOOSTS = [
   { values: ['Soft snow/powder', 'Powder', 'Deep'], keywords: ['warmth', 'packability'] },
   { values: ['Firm/Icy', 'Icy', 'Icy sections'], keywords: ['durability', 'water_impermeability'] },
+  { values: ['Snow or icy'], keywords: ['waterproof', 'warmth', 'windproof'] },
   { values: ['Wet or muddy', 'Wet pavement'], keywords: ['waterproof', 'water_impermeability'] },
   { values: ['Cold', 'Very Cold', 'Extreme cold'], keywords: ['warmth', 'windproof'] },
   { values: ['Mostly warm'], keywords: ['breathability', 'lightweight'] },
@@ -209,7 +214,7 @@ export function scoreProduct(product, profile, subcategoryFilter, accessoryTypeF
 
   for (const keyword of profile.needKeywords) {
     const val = product[keyword]
-    if (typeof val === 'number') score += val * 0.5
+    if (typeof val === 'number') score += val * 1.0
   }
 
   // Require at least one relevant activity match (numeric or text), otherwise
@@ -220,8 +225,14 @@ export function scoreProduct(product, profile, subcategoryFilter, accessoryTypeF
   // Accessories). Treat missing rating as neutral (0) rather than letting it
   // poison the sum — JS `undefined/null * 1.5` would otherwise propagate NaN
   // and silently break the sort.
-  score += (product.rating || 0) * 1.5
+  score += (product.rating || 0) * 0.4
   return score
+}
+
+const PRICE_FILTERS = {
+  'Under $100': p => p.price_usd != null && p.price_usd < 100,
+  '$100–$250': p => p.price_usd != null && p.price_usd >= 100 && p.price_usd <= 250,
+  '$250+': p => p.price_usd != null && p.price_usd > 250,
 }
 
 export function getRecommendations(answers, { limit = 12 } = {}) {
@@ -230,10 +241,12 @@ export function getRecommendations(answers, { limit = 12 } = {}) {
   const subcategoryFilter = buildSubcategoryFilter(focus)
   const accessoryTypeFilter = buildAccessoryTypeFilter(focus)
   const gender = focus.gender
+  const priceFilter = PRICE_FILTERS[answers.price_range]
 
   const scored = products
     .map(p => ({ product: p, score: scoreProduct(p, profile, subcategoryFilter, accessoryTypeFilter, gender) }))
     .filter(s => s.score >= 0)
+    .filter(s => !priceFilter || priceFilter(s.product))
     .sort((a, b) => b.score - a.score)
 
   return scored.slice(0, limit).map(s => normalizeProduct(s.product))

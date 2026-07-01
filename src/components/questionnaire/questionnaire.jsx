@@ -362,7 +362,7 @@ const FLOW = {
     ],
   },
 
-  // --- BIKING ---
+  // Biking
   biking_type: {
     question: 'What kind of riding are you planning?',
     options: [
@@ -428,7 +428,7 @@ const FLOW = {
     ],
   },
 
-  // --- OTHER ---
+  // Other
   other_type: {
     question: 'What kind of activity is this?',
     options: [
@@ -494,6 +494,16 @@ const FLOW = {
     ],
   },
 
+  // Budget step — inserted before focus so every path passes through it
+  price_range: {
+    question: "What's your budget?",
+    options: [
+      { label: 'Under $100', next: 'focus' },
+      { label: '$100–$250', next: 'focus' },
+      { label: '$250+', next: 'focus' },
+    ],
+  },
+
   // --- FOCUS (final step) ---
   focus: {
     question: 'Anything you want to focus on?',
@@ -524,10 +534,16 @@ export default function Questionnaire({ onComplete, onViewResults }) {
 
   const step = FLOW[stepKey]
 
-  function handleOption(option, stepKey) {
-    setAnswers(prev => ({ ...prev, [stepKey]: option.label }))
-    setHistory(prev => [...prev, stepKey])
-    setStepKey(option.next)
+  // Intercepts 'focus' to insert the price_range step first
+  function resolveNext(rawNext) {
+    if (rawNext === 'focus' && stepKey !== 'price_range') return 'price_range'
+    return rawNext
+  }
+
+  function handleOption(option, fromStep) {
+    setAnswers(prev => ({ ...prev, [fromStep]: option.label }))
+    setHistory(prev => [...prev, fromStep])
+    setStepKey(resolveNext(option.next))
   }
 
   function handleBack() {
@@ -540,10 +556,10 @@ export default function Questionnaire({ onComplete, onViewResults }) {
 
   function handleSkip() {
     setHistory(prev => [...prev, stepKey])
-    setStepKey(step.options?.[0]?.next || 'focus')
+    setStepKey(resolveNext(step.options?.[0]?.next || 'focus'))
   }
 
-  function toggleItem(list, setList, item) {
+  function toggleItem(_list, setList, item) {
     setList(prev =>
       prev.includes(item) ? prev.filter(i => i !== item) : [...prev, item]
     )
