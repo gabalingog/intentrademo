@@ -1,3 +1,4 @@
+// questionnaire.jsx
 import { useState } from 'react'
 import OptionButton from './optionButton'
 import styles from './questionnaire.module.css'
@@ -494,19 +495,8 @@ const FLOW = {
     ],
   },
 
-  // Budget step — inserted before focus so every path passes through it
-  price_range: {
-    question: "What's your budget?",
-    options: [
-      { label: 'Under $100', next: 'focus' },
-      { label: '$100–$250', next: 'focus' },
-      { label: '$250+', next: 'focus' },
-    ],
-  },
-
   // --- FOCUS (final step) ---
   focus: {
-    question: 'Anything you want to focus on?',
     isFocus: true,
   },
 }
@@ -534,16 +524,10 @@ export default function Questionnaire({ onComplete, onViewResults }) {
 
   const step = FLOW[stepKey]
 
-  // Intercepts 'focus' to insert the price_range step first
-  function resolveNext(rawNext) {
-    if (rawNext === 'focus' && stepKey !== 'price_range') return 'price_range'
-    return rawNext
-  }
-
   function handleOption(option, fromStep) {
     setAnswers(prev => ({ ...prev, [fromStep]: option.label }))
     setHistory(prev => [...prev, fromStep])
-    setStepKey(resolveNext(option.next))
+    setStepKey(option.next)
   }
 
   function handleBack() {
@@ -556,7 +540,7 @@ export default function Questionnaire({ onComplete, onViewResults }) {
 
   function handleSkip() {
     setHistory(prev => [...prev, stepKey])
-    setStepKey(resolveNext(step.options?.[0]?.next || 'focus'))
+    setStepKey(step.options?.[0]?.next || 'focus')
   }
 
   function toggleItem(_list, setList, item) {
@@ -574,15 +558,18 @@ export default function Questionnaire({ onComplete, onViewResults }) {
   // Done screen
   if (done) {
     return (
-      <div className="flex flex-col items-center py-10 gap-4">
-        <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-2xl">✓</div>
-        <h2 className="text-2xl font-bold">Perfect</h2>
-        <p className="text-gray-500 text-center">We've captured your preferences. Let's find the perfect gear for your adventure.</p>
+      <div className={styles.doneWrap}>
+        <div className={styles.doneIcon}>✓</div>
+        <h2 className={styles.doneTitle}>Perfect</h2>
+        <p className={styles.doneText}>
+          We've captured your preferences <br />
+          Let's find the perfect gear for your adventure
+        </p>
 
-        <div className="flex items-center gap-4 mt-6">
+        <div className={styles.doneActions}>
           <button
             onClick={() => onViewResults && onViewResults()}
-            className="bg-black text-white font-semibold px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors"
+            className={styles.viewResultsBtn}
           >
             View Results →
           </button>
@@ -596,7 +583,7 @@ export default function Questionnaire({ onComplete, onViewResults }) {
               setOther([])
               setDone(false)
             }}
-            className="text-gray-500 hover:text-gray-800 font-medium transition-colors"
+            className={styles.startOverBtn}
           >
             Start over
           </button>
@@ -608,22 +595,16 @@ export default function Questionnaire({ onComplete, onViewResults }) {
   // Focus step
   if (step.isFocus) {
     return (
-      <div className="flex flex-col gap-6">
-        <h2 className="text-2xl font-bold text-center">Anything you want to focus on?</h2>
-
+      <div className={styles.focusWrap}>
         {/* Gender */}
-        <div>
-          <p className="text-sm text-gray-500 text-center mb-3">Gender</p>
-          <div className="flex gap-3 justify-center flex-wrap">
+        <div className={styles.genderSection}>
+          <p className={styles.genderLabel}>Gender</p>
+          <div className={styles.genderOptions}>
             {GENDER_OPTIONS.map(g => (
               <button
                 key={g}
                 onClick={() => setGender(g)}
-                className={`px-5 py-2 rounded-xl border text-sm font-medium transition-all ${
-                  gender === g
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
-                    : 'border-gray-200 text-gray-700 hover:border-gray-400'
-                }`}
+                className={`${styles.genderBtn} ${gender === g ? styles.genderBtnActive : ''}`}
               >
                 {g}
               </button>
@@ -632,35 +613,35 @@ export default function Questionnaire({ onComplete, onViewResults }) {
         </div>
 
         {/* Clothes + Other */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className={styles.focusGrid}>
           <div>
-            <p className="text-sm font-semibold text-gray-700 mb-2">Clothes</p>
-            <div className="flex flex-col gap-2">
+            <p className={styles.colLabel}>Clothes</p>
+            <div className={styles.checkList}>
               {CLOTHES_OPTIONS.map(item => (
-                <label key={item} className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 cursor-pointer hover:border-gray-400 transition-all">
+                <label key={item} className={styles.checkItem}>
                   <input
                     type="checkbox"
                     checked={clothes.includes(item)}
                     onChange={() => toggleItem(clothes, setClothes, item)}
-                    className="accent-blue-500 w-4 h-4"
+                    className={styles.checkbox}
                   />
-                  <span className="text-sm font-medium text-gray-800">{item}</span>
+                  <span className={styles.checkLabel}>{item}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <p className="text-sm font-semibold text-gray-700 mb-2">Other</p>
-            <div className="flex flex-col gap-2">
+            <p className={styles.colLabel}>Other</p>
+            <div className={styles.checkList}>
               {OTHER_OPTIONS.map(item => (
-                <label key={item} className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 cursor-pointer hover:border-gray-400 transition-all">
+                <label key={item} className={styles.checkItem}>
                   <input
                     type="checkbox"
                     checked={other.includes(item)}
                     onChange={() => toggleItem(other, setOther, item)}
-                    className="accent-blue-500 w-4 h-4"
+                    className={styles.checkbox}
                   />
-                  <span className="text-sm font-medium text-gray-800">{item}</span>
+                  <span className={styles.checkLabel}>{item}</span>
                 </label>
               ))}
             </div>
@@ -668,17 +649,11 @@ export default function Questionnaire({ onComplete, onViewResults }) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 mt-2">
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
-          >
-            Submit
+        <div className={styles.focusActions}>
+          <button onClick={handleSubmit} className={styles.submitBtn}>
+            Submit →
           </button>
-          <button
-            onClick={handleSubmit}
-            className="border border-gray-200 text-gray-600 hover:border-gray-400 font-medium px-6 py-3 rounded-xl transition-colors"
-          >
+          <button onClick={handleSubmit} className={styles.showEverythingBtn}>
             Show everything
           </button>
         </div>
@@ -689,14 +664,14 @@ export default function Questionnaire({ onComplete, onViewResults }) {
   const isStart = stepKey === 'start'
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className={styles.stepWrap}>
       {/* Question */}
-      <h2 className={`font-bold text-center ${isStart ? 'text-2xl' : 'text-xl'}`}>
+      <h2 className={`${styles.stepTitle} ${isStart ? styles.stepTitleLarge : styles.stepTitleSmall}`}>
         {step.question}
       </h2>
 
       {/* Options */}
-      <div className="flex flex-col gap-3 mt-2">
+      <div className={styles.optionsList}>
         {step.options.map(option => (
           <OptionButton
             key={option.label}
@@ -708,17 +683,11 @@ export default function Questionnaire({ onComplete, onViewResults }) {
 
       {/* Back / Skip */}
       {!isStart && (
-        <div className="flex justify-between mt-4 px-1">
-          <button
-            onClick={handleBack}
-            className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
-          >
+        <div className={styles.navRow}>
+          <button onClick={handleBack} className={styles.navBtn}>
             ← Back
           </button>
-          <button
-            onClick={handleSkip}
-            className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
-          >
+          <button onClick={handleSkip} className={styles.navBtn}>
             Skip →
           </button>
         </div>

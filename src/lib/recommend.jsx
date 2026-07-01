@@ -229,24 +229,16 @@ export function scoreProduct(product, profile, subcategoryFilter, accessoryTypeF
   return score
 }
 
-const PRICE_FILTERS = {
-  'Under $100': p => p.price_usd != null && p.price_usd < 100,
-  '$100–$250': p => p.price_usd != null && p.price_usd >= 100 && p.price_usd <= 250,
-  '$250+': p => p.price_usd != null && p.price_usd > 250,
-}
-
 export function getRecommendations(answers, { limit = 12 } = {}) {
   const profile = buildTagProfile(answers)
   const focus = answers.focus || {}
   const subcategoryFilter = buildSubcategoryFilter(focus)
   const accessoryTypeFilter = buildAccessoryTypeFilter(focus)
   const gender = focus.gender
-  const priceFilter = PRICE_FILTERS[answers.price_range]
 
   const scored = products
     .map(p => ({ product: p, score: scoreProduct(p, profile, subcategoryFilter, accessoryTypeFilter, gender) }))
     .filter(s => s.score >= 0)
-    .filter(s => !priceFilter || priceFilter(s.product))
     .sort((a, b) => b.score - a.score)
 
   return scored.slice(0, limit).map(s => normalizeProduct(s.product))
